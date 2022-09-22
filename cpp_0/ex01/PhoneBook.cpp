@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:09:36 by lide              #+#    #+#             */
-/*   Updated: 2022/09/21 20:20:44 by lide             ###   ########.fr       */
+/*   Updated: 2022/09/22 02:01:22 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ PhoneBook::PhoneBook(void) : index(-1) {}
 
 PhoneBook::~PhoneBook(void) {}
 
-int	find_str(char *line, std::string str) {
-	while (str[0] == 0)
+void	find_str(std::string line, std::string *str) {
+	while ((*str)[0] == 0)
 	{
 		std::cout << line;
-		std::cin >> str;
-		if (str[0] == 0)
+		std::cin >> *str;
+		if ((*str)[0] == 0)
 			std::cout << "need some information !" << std::endl;
 	}
 }
@@ -31,11 +31,12 @@ void	PhoneBook::add(void) {
 	this->index++;
 	if (this->index == 8)
 		this->index = 0;
-	find_str("first name : ", this->contact[index].first_name);
-	find_str("last name : ", this->contact[index].last_name);
-	find_str("nickname : ", this->contact[index].nickname);
-	find_str("phone number : ", this->contact[index].number);
-	find_str("darkest secret : ", this->contact[index].secret);
+	find_str("first name : ", &(this->contact[index].first_name));
+	std::cout << this->contact[index].first_name << " test " << std::endl;
+	find_str("last name : ", &(this->contact[index].last_name));
+	find_str("nickname : ", &(this->contact[index].nickname));
+	find_str("phone number : ", &(this->contact[index].number));
+	find_str("darkest secret : ", &(this->contact[index].secret));
 }
 
 std::string	ft_short(std::string name) {
@@ -53,9 +54,10 @@ std::string	ft_short(std::string name) {
 	return (shorted);
 }
 
-void	PhoneBook::print_short(void) const {
+void	PhoneBook::search(void) const {
 	std::string	id;
 
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	if (this->contact[0].first_name[0] == 0)
 	{
 		std::cout << "there is no contact in the PhoneBook" << std::endl;
@@ -68,7 +70,7 @@ void	PhoneBook::print_short(void) const {
 		<< "|" << ft_short(this->contact[i].nickname) << "|" << std::endl;
 	std::cout << "Enter the contact ID : ";
 	std::cin >> id;
-	if (id.length() > 1 || (id[0] < '0' && id[0] > '7') || this->contact[atoi(id.c_str())].first_name[0] == 0)
+	if (id.length() > 1 || (id[0] < '0' && id[0] > '7') || this->contact[atoi(id.c_str())].first_name[0] == 0)//segfault
 	{
 		std::cout << "Wrong ID" << std::endl;
 		return ;
@@ -83,9 +85,3 @@ void	PhoneBook::print_short(void) const {
 		<< this->contact[nb].secret << std::endl;
 	}
 }
-
-void	PhoneBook::search(void) const {
-	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
-	print_short();
-}
-
