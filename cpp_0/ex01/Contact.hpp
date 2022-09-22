@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 15:56:54 by lide              #+#    #+#             */
-/*   Updated: 2022/09/21 17:17:18 by lide             ###   ########.fr       */
+/*   Updated: 2022/09/22 23:14:24 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 
 

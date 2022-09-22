@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 15:39:27 by lide              #+#    #+#             */
-/*   Updated: 2022/09/22 02:01:14 by lide             ###   ########.fr       */
+/*   Updated: 2022/09/22 23:14:15 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "Contact.hpp"
 # include <stdlib.h>
+
 class PhoneBook {
 
 	public:

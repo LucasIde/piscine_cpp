@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:09:36 by lide              #+#    #+#             */
-/*   Updated: 2022/09/22 19:42:28 by lide             ###   ########.fr       */
+/*   Updated: 2022/09/22 23:21:05 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ std::string	ft_short(std::string name) {
 	std::string shorted = name;
 
 	if (len < 10)
-		for (int diff = 10 - len; diff > 0; diff--)
-			shorted.insert(0, " ");
+		std::cout << std::setw(10);
 	else if (len > 10)
 	{
 		shorted.resize(10);
