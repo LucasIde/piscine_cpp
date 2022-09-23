@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/09/23 14:42:23 by lide             ###   ########.fr        #
+#    Updated: 2022/09/23 21:32:20 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ END=$ \x1b[0m
 RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
-SRCS		=	.cpp
+SRCS		=	tests.cpp\
+				Account.cpp
 
-NAME		=
+NAME		=	Account
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}
