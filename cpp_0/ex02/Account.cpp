@@ -1,6 +1,5 @@
 #include "Account.hpp"
 #include <iostream>
-#include <iomanip>
 #include <ctime>
 
 Account::Account(int initial_deposit) : _amount(initial_deposit) {
@@ -25,10 +24,6 @@ void	Account::displayAccountsInfos(void) {
 	<< ";deposits:" << Account::_totalNbDeposits
 	<< ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
 	return ;
-}
-
-int	Account::checkAmount(void) const {
-	return (Account::_amount);
 }
 
 void	Account::displayStatus(void) const {
@@ -71,6 +66,22 @@ bool Account::makeWithdrawal(int withdrawal) {
 	}
 }
 
+void	Account::_displayTimestamp(void) {
+	time_t rawtime;
+	struct tm	*currentime;
+	char t[100];
+
+	rawtime = time(NULL);
+	currentime = localtime(&rawtime);
+	strftime(t, 100, "[%Y%m%d_%H%M%S] ", currentime);
+	std::cout << t;
+	return ;
+}
+
+int	Account::checkAmount(void) const {
+	return (Account::_amount);
+}
+
 int	Account::getNbAccounts(void) {
 	return (Account::_nbAccounts);
 }
@@ -85,12 +96,6 @@ int	Account::getNbDeposits(void) {
 
 int	Account::getNbWithdrawals(void) {
 	return (Account::_totalNbWithdrawals);
-}
-
-void	Account::_displayTimestamp(void) {
-	time_t	now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
-	return ;
 }
 
 int Account::_nbAccounts = 0;

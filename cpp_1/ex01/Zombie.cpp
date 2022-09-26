@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 01:39:26 by lide              #+#    #+#             */
-/*   Updated: 2022/09/26 19:55:39 by lide             ###   ########.fr       */
+/*   Created: 2022/09/26 17:14:02 by lide              #+#    #+#             */
+/*   Updated: 2022/09/26 18:58:57 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
-int main(void)
-{
-	std::string line;
-	PhoneBook phone;
+Zombie::Zombie(void) {}
 
-	while ((line.compare("EXIT")))
-	{
-		std::cout << "The program only accepts ADD, SEARCH and EXIT :" << std::endl;
-		std::getline(std::cin, line);
-		if (!line.compare("ADD"))
-			phone.add();
-		else if (!line.compare("SEARCH"))
-			phone.search();
-	}
+Zombie::~Zombie(void) {
+	std::cout << this->_name << " has been destroyed" << std::endl;
+}
+
+void	Zombie::setname(std::string n) {
+	this->_name = n;
+	return;
+}
+
+void	Zombie::annouce(void) {
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return;
 }

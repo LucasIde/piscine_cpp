@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 01:39:26 by lide              #+#    #+#             */
-/*   Updated: 2022/09/26 19:55:39 by lide             ###   ########.fr       */
+/*   Created: 2022/09/26 17:08:44 by lide              #+#    #+#             */
+/*   Updated: 2022/09/26 18:45:29 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main(void)
-{
-	std::string line;
-	PhoneBook phone;
+# include <iostream>
+# include <string>
 
-	while ((line.compare("EXIT")))
-	{
-		std::cout << "The program only accepts ADD, SEARCH and EXIT :" << std::endl;
-		std::getline(std::cin, line);
-		if (!line.compare("ADD"))
-			phone.add();
-		else if (!line.compare("SEARCH"))
-			phone.search();
-	}
-}
+class Zombie {
+
+	public:
+		Zombie();
+		~Zombie();
+
+		void	annouce(void);
+		void	setname(std::string n);
+
+	private:
+		std::string	_name;
+};
+
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
+
+#endif

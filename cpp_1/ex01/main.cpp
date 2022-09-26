@@ -5,25 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 01:39:26 by lide              #+#    #+#             */
-/*   Updated: 2022/09/26 19:55:39 by lide             ###   ########.fr       */
+/*   Created: 2022/09/26 18:17:38 by lide              #+#    #+#             */
+/*   Updated: 2022/09/26 19:50:04 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
-int main(void)
-{
-	std::string line;
-	PhoneBook phone;
+int main(void) {
+	Zombie	*horde;
+	int		nb = 200;
 
-	while ((line.compare("EXIT")))
-	{
-		std::cout << "The program only accepts ADD, SEARCH and EXIT :" << std::endl;
-		std::getline(std::cin, line);
-		if (!line.compare("ADD"))
-			phone.add();
-		else if (!line.compare("SEARCH"))
-			phone.search();
-	}
+	horde = zombieHorde(nb, "Zombie");
+	for (int i = 0; i < nb; i++)
+		horde[i].annouce();
+	delete [] horde;
+	return (0);
 }
