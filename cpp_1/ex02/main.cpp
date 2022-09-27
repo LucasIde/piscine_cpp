@@ -5,20 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 18:17:38 by lide              #+#    #+#             */
-/*   Updated: 2022/09/27 20:15:05 by lide             ###   ########.fr       */
+/*   Created: 2022/09/27 14:24:24 by lide              #+#    #+#             */
+/*   Updated: 2022/09/27 14:37:37 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-int main(void) {
-	Zombie	*horde;
-	int		nb = 10;
+int	main(void) {
+	std::string str = "HI THIS IS BRAIN";
+	std::string *stringPTR = &str;
+	std::string &stringREF = str;
 
-	horde = zombieHorde(nb, "Zombie");
-	for (int i = 0; i < nb; i++)
-		horde[i].annouce();
-	delete [] horde;
+	std::cout << "str : " << &str << std::endl
+	<< "stringPTR : " << stringPTR << std::endl
+	<< "stringREF : " << &stringREF << std::endl << std::endl;
+
+	std::cout << "str : " << str << std::endl
+	<< "stringPTR : " << *stringPTR << std::endl
+	<< "stringREF : " << stringREF << std::endl;
+
 	return (0);
 }
