@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:57:02 by lide              #+#    #+#             */
-/*   Updated: 2022/09/30 18:03:57 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/01 00:43:25 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Harl {
 
 	public:
 
-		Harl::Harl(void);
-		Harl::~Harl(void);
+		Harl(void);
+		~Harl(void);
 
 		void complain(std::string level);
 

@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 18:04:02 by lide              #+#    #+#             */
-/*   Updated: 2022/09/30 19:14:19 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/01 00:58:47 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,15 @@ Harl::~Harl(void) {}
 
 void	Harl::complain(std::string level) {
 	std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*ft[4])(void) = {Harl::debug(), };
+	void (Harl::*ft[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	Harl harl;
+	int i;
+
+	for (i = 0; i < 4; i++)
+		if (!level.compare(str[i]))
+			break ;
+	if (i < 4)
+		(harl.*ft[i])();
 }
 
 void	Harl::debug(void) {
