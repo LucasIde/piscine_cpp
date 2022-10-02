@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 00:39:16 by lide              #+#    #+#             */
-/*   Updated: 2022/10/02 15:18:11 by lide             ###   ########.fr       */
+/*   Created: 2022/09/30 17:57:02 by lide              #+#    #+#             */
+/*   Updated: 2022/10/01 00:43:25 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main(void) {
-	Harl harl;
+# include <iostream>
+# include <string>
 
-	harl.complain("ARNING");
+class Harl {
 
-	harl.complain("WARNING");
+	public:
 
-	harl.complain("INFO");
+		Harl(void);
+		~Harl(void);
 
-	harl.complain("DEBUG");
+		void complain(std::string level);
 
-	harl.complain("");
+	private:
 
-	harl.complain("ERROR");
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+};
 
-	harl.complain("eogyoergt orzeigth erg");
-
-	return (0);
-}
+#endif

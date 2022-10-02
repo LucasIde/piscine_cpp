@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 18:04:02 by lide              #+#    #+#             */
-/*   Updated: 2022/10/02 15:18:15 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/02 15:12:38 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,24 @@ void	Harl::complain(std::string level) {
 	for (i = 0; i < 4; i++)
 		if (!level.compare(str[i]))
 			break ;
-	if (i < 4)
-		(harl.*ft[i])();
+	while (i >= 0)
+	{
+		switch (i)
+		{
+			case 4: std::cout << "[ Probably complaining about insignificant problems ]" << std::endl << std::endl;
+				return ;
+			case 3: (harl.*ft[i])();
+				break ;
+			case 2: (harl.*ft[i])();
+				break ;
+			case 1: (harl.*ft[i])();
+				break ;
+			case 0: (harl.*ft[i])();
+				break ;
+		}
+		i--;
+	}
+	return ;
 }
 
 void	Harl::debug(void) {
