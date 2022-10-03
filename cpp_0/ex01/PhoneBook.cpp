@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:09:36 by lide              #+#    #+#             */
-/*   Updated: 2022/10/02 23:19:41 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/03 15:52:57 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ std::string	find_str(std::string info) {
 		std::getline(std::cin, line);
 		if (line[0] == 0)
 			std::cout << "need some information !" << std::endl;
+		else
+			std::cout << line << std::endl;
 	}
 	return (line);
 }

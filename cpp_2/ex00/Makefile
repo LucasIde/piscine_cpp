@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/10/03 19:31:54 by lide             ###   ########.fr        #
+#    Updated: 2022/10/03 19:04:00 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,8 @@ RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
 SRCS		=	main.cpp\
-				zombieHorde.cpp\
-				Zombie.cpp
 
-NAME		= Moar_brainz!
+NAME		=	Mon_premier_canon
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}

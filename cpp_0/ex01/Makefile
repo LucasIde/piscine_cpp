@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/09/22 22:55:59 by lide             ###   ########.fr        #
+#    Updated: 2022/10/03 15:30:46 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ OBJS		=	${SRCS:.cpp=.o}
 .cpp.o:
 			@${CXX} ${CXXFLAGS} -c -I ./ $< -o ${<:.cpp=.o}
 
-all :		${NAME}
-
 $(NAME):	${OBJS}
 			@${CXX} ${CXXFLAGS} -o ${NAME} ${OBJS}
 			@echo "${GREEN}|${NAME} created|${END}"
+
+all :		${NAME}
 
 clean:
 			@rm -f ${OBJS}
