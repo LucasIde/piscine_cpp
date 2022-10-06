@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:21:54 by lide              #+#    #+#             */
-/*   Updated: 2022/10/05 16:51:23 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/06 17:20:05 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ Fixed &Fixed::operator=(Fixed const &rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->number_value = rhs.getRawBits();
 	return (*this);
+}
+
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs) {
+	o << rhs.getRawBits()
 }
 
 int Fixed::getRawBits(void) const {

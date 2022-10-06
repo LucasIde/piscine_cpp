@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:43:08 by lide              #+#    #+#             */
-/*   Updated: 2022/10/05 16:40:18 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/06 17:59:15 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Fixed {
 
 	public:
 		Fixed(void);
+		Fixed(const int);
+		Fixed(const float);
 		Fixed(Fixed const &src);
 		~Fixed(void);
 
@@ -30,6 +32,10 @@ class Fixed {
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
+
+std::ostream &operator<<(std::ostream &o ,Fixed const &rhs);
 
 #endif
