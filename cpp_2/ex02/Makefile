@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/10/07 14:02:46 by lide             ###   ########.fr        #
+#    Updated: 2022/10/07 17:05:52 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ GREEN=$ \x1b[32m
 SRCS		=	main.cpp\
 				Fixed.cpp
 
-NAME		=	Mon_premier_canon
+NAME		=	fixed_point
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}

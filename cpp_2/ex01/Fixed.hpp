@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:43:08 by lide              #+#    #+#             */
-/*   Updated: 2022/10/06 17:59:15 by lide             ###   ########.fr       */
+/*   Updated: 2022/10/07 14:22:15 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 
 	private:
-		int number_value;
+		int fixed_point;
 		static const int fractional;
 
 	public:
 		Fixed(void);
-		Fixed(const int);
-		Fixed(const float);
+		Fixed(const int i);
+		Fixed(const float f);
 		Fixed(Fixed const &src);
 		~Fixed(void);
 
