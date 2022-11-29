@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:44:42 by lide              #+#    #+#             */
-/*   Updated: 2022/09/30 17:19:30 by lide             ###   ########.fr       */
+/*   Updated: 2022/11/29 17:25:20 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main (int argc , char **argv) {
 
 	std::string		name = argv[1];
 	std::string		s1 = argv[2];
-	std::ofstream	outfile(name.append(".replace"), std::ofstream::out | std::ofstream::trunc);
 	std::ifstream	infile(name);
+	std::ofstream	outfile(name.append(".replace"), std::ofstream::out | std::ofstream::trunc);
 	std::string		save;
 	std::string		new_save;
 	char			file[1];
