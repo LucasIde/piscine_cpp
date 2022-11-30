@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:43:08 by lide              #+#    #+#             */
-/*   Updated: 2022/10/07 17:08:13 by lide             ###   ########.fr       */
+/*   Updated: 2022/11/30 16:37:31 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class Fixed {
 
 	private:
-		int fixed_point;
-		static const int fractional;
+		int _fixed_point;
+		static const int _fractional;
 
 	public:
 		Fixed(void);
