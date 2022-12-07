@@ -6,18 +6,22 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:25:21 by lide              #+#    #+#             */
-/*   Updated: 2022/12/07 18:16:05 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/08 00:12:31 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0) {
-	std::cout << "Claptrap is alive" << std::endl;
+ClapTrap::ClapTrap(void) : _Name("default ClapTrap"), _Hit_points(10), _Energy_points(10), _Attack_damage(0) {
+	std::cout << "default ClapTrap is alive" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string &name) : _Name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0) {
+	std::cout << "Claptrap " << name << " is alive" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
-	std::cout << "Claptrap has been cloned" << std::endl;
+	std::cout << "Claptrap " << src.get_name() << " has been cloned" << std::endl;
 	*this = src;
 }
 
@@ -48,3 +52,12 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
 	int	ClapTrap::get_attack(void) const {
 		return (this->_Attack_damage);
 	}
+
+	void ClapTrap::attack(const std::string& target) {
+		std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_Attack_damage << " points of damage!";
+		this->_Energy_points--;
+	}
+
+	void takeDamage(unsigned int amount) {}
+
+	void beRepaired(unsigned int amount) {}
