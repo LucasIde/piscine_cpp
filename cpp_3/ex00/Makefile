@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/12/07 23:10:22 by lide             ###   ########.fr        #
+#    Updated: 2022/12/09 15:36:56 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
 SRCS		=	main.cpp\
+				ClapTrap.cpp
 
-NAME		=	BSP
+NAME		=	ClapTrap
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}
