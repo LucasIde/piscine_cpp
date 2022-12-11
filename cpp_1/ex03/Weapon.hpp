@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 14:44:43 by lide              #+#    #+#             */
-/*   Updated: 2022/09/27 19:21:07 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/11 18:56:46 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Weapon {
 		void		setType(std::string w);
 
 	private:
-		std::string _weapon;
+		std::string type;
 };
 
 #endif

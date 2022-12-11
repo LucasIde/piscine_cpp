@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:17:19 by lide              #+#    #+#             */
-/*   Updated: 2022/09/27 19:44:26 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/11 18:56:46 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanB {
 
 	private:
 		std::string _name;
-		Weapon *_weapon;
+		Weapon *type;
 };
 
 #endif
