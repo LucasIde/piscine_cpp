@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:08:44 by lide              #+#    #+#             */
-/*   Updated: 2022/09/27 14:52:18 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/11 18:34:30 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Zombie {
 		Zombie();
 		~Zombie();
 
-		void	annouce(void);
+		void	announce(void);
 		void	setname(std::string n);
 
 	private:

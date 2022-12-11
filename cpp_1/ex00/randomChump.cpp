@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:14:58 by lide              #+#    #+#             */
-/*   Updated: 2022/09/26 18:40:08 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/11 18:35:55 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	randomChump(std::string name) {
 	Zombie undead;
 	undead.setname(name);
-	undead.annouce();
+	undead.announce();
 	return ;
 }

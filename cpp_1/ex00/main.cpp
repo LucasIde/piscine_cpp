@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:17:38 by lide              #+#    #+#             */
-/*   Updated: 2022/09/26 19:10:18 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/11 18:34:39 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void) {
 
 	body = newZombie("zaine-el-abidine");
 	randomChump("cassandre");
-	body->annouce();
+	body->announce();
 	delete body;
 	return (0);
 }
