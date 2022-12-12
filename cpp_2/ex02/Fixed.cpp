@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:21:54 by lide              #+#    #+#             */
-/*   Updated: 2022/11/30 16:40:33 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/12 19:06:11 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,37 +42,37 @@ Fixed::~Fixed(void) {
 
 /////comparaison/////
 
-bool	Fixed::operator>(Fixed const &rhs) {
+bool	Fixed::operator>(Fixed const &rhs) const{
 	if (this->_fixed_point > rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<(Fixed const &rhs) {
+bool	Fixed::operator<(Fixed const &rhs) const{
 	if (this->_fixed_point < rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator>=(Fixed const &rhs) {
+bool	Fixed::operator>=(Fixed const &rhs) const{
 	if (this->_fixed_point >= rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<=(Fixed const &rhs) {
+bool	Fixed::operator<=(Fixed const &rhs) const{
 	if (this->_fixed_point <= rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator==(Fixed const &rhs) {
+bool	Fixed::operator==(Fixed const &rhs) const{
 	if (this->_fixed_point == rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator!=(Fixed const &rhs) {
+bool	Fixed::operator!=(Fixed const &rhs) const{
 	if (this->_fixed_point != rhs.getRawBits())
 		return (true);
 	return (false);
@@ -165,13 +165,13 @@ Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs) {
 }
 
 const Fixed	&Fixed::min(Fixed const &lhs, Fixed const &rhs) {
-	if (lhs.getRawBits() < rhs.getRawBits())
+	if (lhs < rhs)
 		return (lhs);
 	return (rhs);
 }
 
 const Fixed	&Fixed::max(Fixed const &lhs, Fixed const &rhs) {
-	if (lhs.getRawBits() > rhs.getRawBits())
+	if (lhs > rhs)
 		return (lhs);
 	return (rhs);
 }

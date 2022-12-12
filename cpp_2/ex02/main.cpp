@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 16:50:07 by lide              #+#    #+#             */
-/*   Updated: 2022/11/30 15:57:08 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/12 19:13:24 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(void)
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
+
 	return (0);
 }
