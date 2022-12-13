@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:21:54 by lide              #+#    #+#             */
-/*   Updated: 2022/12/07 17:10:29 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/13 13:04:47 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,37 +42,37 @@ Fixed::~Fixed(void) {
 
 /////comparaison/////
 
-bool	Fixed::operator>(Fixed const &rhs) {
+bool	Fixed::operator>(Fixed const &rhs) const{
 	if (this->_fixed_point > rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<(Fixed const &rhs) {
+bool	Fixed::operator<(Fixed const &rhs) const{
 	if (this->_fixed_point < rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator>=(Fixed const &rhs) {
+bool	Fixed::operator>=(Fixed const &rhs) const{
 	if (this->_fixed_point >= rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator<=(Fixed const &rhs) {
+bool	Fixed::operator<=(Fixed const &rhs) const{
 	if (this->_fixed_point <= rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator==(Fixed const &rhs) {
+bool	Fixed::operator==(Fixed const &rhs) const{
 	if (this->_fixed_point == rhs.getRawBits())
 		return (true);
 	return (false);
 }
 
-bool	Fixed::operator!=(Fixed const &rhs) {
+bool	Fixed::operator!=(Fixed const &rhs) const{
 	if (this->_fixed_point != rhs.getRawBits())
 		return (true);
 	return (false);
