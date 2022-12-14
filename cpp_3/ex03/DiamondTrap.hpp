@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 15:32:53 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 17:24:17 by lide             ###   ########.fr       */
+/*   Created: 2022/12/14 17:56:36 by lide              #+#    #+#             */
+/*   Updated: 2022/12/14 18:42:18 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
-{
-	std::string name2 = "Frag";
-	FragTrap Frag(name2);
+class DiamondTrap : public ScavTrap, public FragTrap {
 
-	Frag.attack("trap");
-	Frag.highFivesGuys();
-	Frag.takeDamage(10);
-	FragTrap trap(Frag);
-	Frag.takeDamage(10);
-	trap.takeDamage(10);
-	Frag.beRepaired(10);
+	private:
+		std::string _Name;
 
-	return (0);
-}
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string &name);
+		DiamondTrap(DiamondTrap const &src);
+		~DiamondTrap();
+
+		DiamondTrap &operator=(DiamondTrap const &rhs);
+
+		void whoAmI();
+};

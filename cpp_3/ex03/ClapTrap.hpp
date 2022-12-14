@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:11:11 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 19:07:56 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/14 19:08:09 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap {
 		ClapTrap(void);
 		ClapTrap(std::string &name);
 		ClapTrap(ClapTrap const &src);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 
 		ClapTrap	&operator=(ClapTrap const &rhs);
 

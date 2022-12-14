@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/12/14 17:23:49 by lide             ###   ########.fr        #
+#    Updated: 2022/12/14 18:45:06 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,10 @@ GREEN=$ \x1b[32m
 SRCS		=	main.cpp\
 				ClapTrap.cpp\
 				ScavTrap.cpp\
-				FragTrap.cpp
+				FragTrap.cpp\
+				DiamondTrap.cpp
 
-NAME		=	FragTrap
+NAME		=	DiamondTrap
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}
