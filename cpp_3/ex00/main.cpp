@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:32:53 by lide              #+#    #+#             */
-/*   Updated: 2022/12/09 17:02:41 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/14 15:45:04 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int main(void)
 	std::string name2 = "R2D2";
 	ClapTrap trap(name);
 	ClapTrap R2(name2);
+	ClapTrap R3(R2);
 
+	R3.takeDamage(1);
 	//losing energy
 	trap.attack("clap");
 	trap.attack("clap");

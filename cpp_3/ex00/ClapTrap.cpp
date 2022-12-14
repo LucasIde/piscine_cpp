@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:25:21 by lide              #+#    #+#             */
-/*   Updated: 2022/12/09 17:04:27 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/14 15:46:43 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(std::string &name) : _Name(name), _Hit_points(10), _Energy_po
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
-	std::cout << "Claptrap " << src.get_name() << " has been cloned" << std::endl;
+	std::cout << "Claptrap " << src._Name << " has been cloned" << std::endl;
 	*this = src;
 }
 
@@ -30,28 +30,12 @@ ClapTrap::~ClapTrap(void) {
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
-	this->_Name = rhs.get_name();
-	this->_Hit_points = rhs.get_hit();
-	this->_Energy_points = rhs.get_hit();
-	this->_Attack_damage = rhs.get_attack();
+	this->_Name = rhs._Name;
+	this->_Hit_points = rhs._Hit_points;
+	this->_Energy_points = rhs._Energy_points;
+	this->_Attack_damage = rhs._Attack_damage;
 	return (*this);
 }
-
-	std::string	ClapTrap::get_name(void) const {
-		return (this->_Name);
-	}
-
-	int	ClapTrap::get_hit(void) const {
-		return (this->_Hit_points);
-	}
-
-	int	ClapTrap::get_energy(void) const {
-		return (this->_Energy_points);
-	}
-
-	int	ClapTrap::get_attack(void) const {
-		return (this->_Attack_damage);
-	}
 
 	void ClapTrap::attack(const std::string& target) {
 		if (this->_Energy_points > 0 && this->_Hit_points > 0)
