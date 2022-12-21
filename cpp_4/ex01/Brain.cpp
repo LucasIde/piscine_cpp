@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 16:28:24 by lide              #+#    #+#             */
-/*   Updated: 2022/12/21 18:07:17 by lide             ###   ########.fr       */
+/*   Created: 2022/12/21 18:31:55 by lide              #+#    #+#             */
+/*   Updated: 2022/12/21 18:51:17 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Dog_HPP
-# define Dog_HPP
+#include "Brain.hpp"
 
-# include "Animal.hpp"
+Brain::Brain() {
+	std::cout << "Brain created" << std::endl;
+}
 
-class Dog : public Animal {
+Brain::Brain(Brain const &rhs) {
+	std::cout << "Brain cloned" << std::endl;
+	*this = rhs;
+}
 
-	public:
-		Dog();
-		Dog(Dog const &src);
-		~Dog();
+Brain::~Brain() {
+	std::cout << "Brain destroyed" << std::endl;
+}
 
-		Dog &operator=(Dog const &src);
-
-		virtual void makeSound() const;
-};
-
-#endif
+Brain &Brain::operator=(Brain const &rhs) {
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = rhs.ideas[i];
+	return (*this);
+}
