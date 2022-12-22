@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:28:24 by lide              #+#    #+#             */
-/*   Updated: 2022/12/21 18:34:36 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/22 18:20:29 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class Cat : public Animal , public Brain {
 		Cat &operator=(Cat const &src);
 
 		virtual void makeSound() const;
+
+		std::string	&get_idea(int i) const;
+		void		set_idea(std::string idea);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:51:14 by lide              #+#    #+#             */
-/*   Updated: 2022/12/21 18:49:06 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/22 18:20:49 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,25 @@ Cat::~Cat() {
 
 Cat &Cat::operator=(Cat const &rhs) {
 	this->type = rhs.type;
-	this->brain = rhs.brain;
+	// delete this->brain;
+	this->brain = rhs.brain;//peut etre leak check egal
 	return (*this);
 }
 
 void Cat::makeSound() const {
 	std::cout << "meeeeeeooow!!!" << std::endl;
+}
+
+std::string &Cat::get_idea(int i) const {
+	return (this->brain->ideas[i]);
+}
+
+void	Cat::set_idea(std::string idea) {
+	for (int i = 0; i < 100; i++)
+		if (this->brain->ideas[i].empty())
+		{
+			this->brain->ideas[i] = idea;
+			return ;
+		}
+	std::cout << "it's not possible to have more than 100 ideas" << std::endl;
 }
