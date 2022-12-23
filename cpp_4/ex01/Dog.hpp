@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:28:24 by lide              #+#    #+#             */
-/*   Updated: 2022/12/22 18:20:10 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/23 17:33:02 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 # define Dog_HPP
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
-class Dog : public Animal , public Brain{
+class Dog : public Animal {
+
 	private:
 		Brain *brain;
 
 	public:
 		Dog();
 		Dog(Dog const &src);
-		~Dog();
+		virtual ~Dog();
 
 		Dog &operator=(Dog const &src);
 
 		virtual void makeSound() const;
-
-		std::string	&get_idea(int i) const;
-		void		set_idea(std::string idea);
+		std::string &getIdea(int i);
+		void setIdea(const std::string &idea);
 };
 
 #endif

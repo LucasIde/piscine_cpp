@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:31:55 by lide              #+#    #+#             */
-/*   Updated: 2022/12/21 18:51:17 by lide             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "Brain.hpp"
 
@@ -29,4 +18,20 @@ Brain &Brain::operator=(Brain const &rhs) {
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = rhs.ideas[i];
 	return (*this);
+}
+
+std::string &Brain::getIdea(int i) {
+	return (this->ideas[i]);
+}
+
+void Brain::setIdea(const std::string &idea) {
+	for (int i = 0; i < 100; i++)
+	{
+		if (this->ideas[i].empty())
+		{
+			this->ideas[i] = idea;
+			return ;
+		}
+	}
+	std::cout << "hundred ideas is my limit" << std::endl;
 }
