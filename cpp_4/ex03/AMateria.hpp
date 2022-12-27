@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:26 by lide              #+#    #+#             */
-/*   Updated: 2022/12/26 17:02:47 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/27 17:25:23 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define AMATERIA_HPP
 
 # include <iostream>
+# include <string>
 # include "Character.hpp"
 
 class AMateria
@@ -24,7 +25,7 @@ class AMateria
 	public:
 		AMateria();
 		AMateria(AMateria const &src);
-		AMateria(std::string const & type);
+		AMateria(std::string const &type);
 		~AMateria();
 
 		AMateria &operator=(AMateria const &rhs);
