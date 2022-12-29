@@ -21,24 +21,24 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs) {
 	for (int i = 0; i < 4; i++)
 	{
 		if (rhs.incantation[i] != NULL)
-			this->incantation[i] = rhs.incantation[i].clone();
+			this->incantation[i] = rhs.incantation[i]->clone();
 		else
 			this->incantation[i] = NULL;
 	}
 	return (*this);
 }
 
-void learnMateria(AMateria *src) {
+void MateriaSource::learnMateria(AMateria *src) {
 	for (int i = 0; i < 4; i++)
 		if (incantation[i] == NULL)
-			incantation[i] = *src;//doit peut etre delete le materia si pas de place
+			incantation[i] = src;//doit peut etre delete le materia si pas de place
 }
 
-AMateria* createMateria(std::string const & type) {
+AMateria* MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->incantation[i].getType().compare(type))
-			return (this->incantation[i].clone());
+		if (this->incantation[i]->getType().compare(type))
+			return (this->incantation[i]->clone());
 	}
 	return (0);
 }

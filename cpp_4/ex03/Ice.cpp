@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:42 by lide              #+#    #+#             */
-/*   Updated: 2022/12/27 15:18:43 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/29 15:44:15 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ Ice &Ice::operator=(Ice const &rhs) {
 	return (*this);
 }
 
-Ice *Ice::clone() const {
-	new Ice *materia;
-	Materia = this;
-	return (this);
+void Ice::use(ICharacter &target) {
+	std::cout << "Ice : \"*shoots an ice bolt at " << target.getName() << "*\"" << std::endl;
 }
 
-void use(ICharacter &target) {
-	std::cout << "Ice : \"*shoots an ice bolt at " << target.getName() << "*\"" << std::endl;
+Ice *Ice::clone() const {
+	const AMateria *materia = new Ice;
+	materia = this;
+	return (this);
 }

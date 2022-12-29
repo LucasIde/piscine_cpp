@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:37 by lide              #+#    #+#             */
-/*   Updated: 2022/12/27 17:53:54 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/29 15:22:44 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Character::Character(Character const &rhs) {
 
 Character::~Character() {
 	for (int i = 0; i < 4; i++)
-		delete spell[i]
+		delete spell[i];
 }
 
 Character &Character::operator=(Character const &rhs) {
@@ -38,7 +38,7 @@ Character &Character::operator=(Character const &rhs) {
 	for (int i = 0; i < 4; i++)
 	{
 		if (rhs.spell[i] != NULL)
-			this->spell[i] = rhs.spell[i].clone();
+			this->spell[i] = rhs.spell[i]->clone();
 		else
 			this->spell[i] = NULL;
 	}
@@ -49,16 +49,18 @@ std::string const &Character::getName() const {
 	return (this->_name);
 }
 
-void Character::use(int idx, ICharacter& target) {
-	use(*target[idx]);
+void Character::use(int idx, ICharacter &target) {
+	if (!this->spell[idx] || idx < 0 || idx > 3)
+		return ;
+	this->spell[idx]->use(target);
 }
 
 void Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; i++)
 		if (spell[i] == NULL)
-			spell[i] = *m;//doit peut etre delete le materia si pas de place
+			spell[i] = m;//doit peut etre delete le materia si pas de place
 }
 
 void Character::unequip(int idx) {
-	this->spell = NULL;
+	this->spell[idx] = NULL;
 }

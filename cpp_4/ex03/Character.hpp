@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:17 by lide              #+#    #+#             */
-/*   Updated: 2022/12/27 18:14:33 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/29 15:04:47 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Character : public ICharacter
 		Character(Character const &src);
 		~Character();
 
-		AMateria incantation[4];
+		AMateria *spell[4];
 
 		Character &operator=(Character const &rhs);
 		virtual std::string const & getName() const;

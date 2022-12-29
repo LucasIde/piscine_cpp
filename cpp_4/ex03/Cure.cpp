@@ -13,11 +13,11 @@ Cure &Cure::operator=(Cure const &rhs) {
 }
 
 Cure *Cure::clone() const {
-	new Cure *materia;
-	Materia = this;
+	const AMateria *materia = new Cure;
+	materia = this;
 	return (this);
 }
 
-void use(ICharacter &target) {
-	std::cout << "Cure : \"* heals " << target.getName << "\'s wound *\"" << std::endl;
+void Cure::use(ICharacter &target) {
+	std::cout << "Cure : \"* heals " << target.getName() << "\'s wound *\"" << std::endl;
 }

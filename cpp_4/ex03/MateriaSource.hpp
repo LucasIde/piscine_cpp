@@ -19,7 +19,7 @@ class MateriaSource : public IMateriaSource
 		MateriaSource(MateriaSource const &src);
 		~MateriaSource();
 
-		AMateria spell[4];
+		AMateria *incantation[4];
 
 		MateriaSource &operator=(MateriaSource const &rhs);
 
