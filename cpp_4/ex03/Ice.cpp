@@ -6,15 +6,19 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:42 by lide              #+#    #+#             */
-/*   Updated: 2022/12/29 15:44:15 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/30 16:00:34 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : _type("ice") {}
+Ice::Ice() {
+	this->_type = "ice";
+}
 
-Ice::Ice(Ice const &rhs) : _type("ice") {}
+Ice::Ice(Ice const &rhs) {
+	this->_type = rhs._type;
+}
 
 Ice::~Ice() {}
 
@@ -28,7 +32,5 @@ void Ice::use(ICharacter &target) {
 }
 
 Ice *Ice::clone() const {
-	const AMateria *materia = new Ice;
-	materia = this;
-	return (this);
+	return (new Ice(*this));
 }

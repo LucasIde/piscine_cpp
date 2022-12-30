@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:17 by lide              #+#    #+#             */
-/*   Updated: 2022/12/29 15:04:47 by lide             ###   ########.fr       */
+/*   Updated: 2022/12/30 15:42:44 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define CHARACTER_HPP
 
 # include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
