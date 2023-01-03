@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:39:27 by lide              #+#    #+#             */
-/*   Updated: 2023/01/03 17:25:18 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/03 21:00:26 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,21 @@ const std::string &Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
 	return (this->_grade);
+}
+
+void Bureaucrat::signForm(AForm &rhs) const {
+	if (rhs.getStatus() == 1)
+		std::cout << this->_name << " couldn\'t sign " << rhs.getName() << " because it's already sign" << std::endl;
+	else
+	{
+		rhs.beSigned(*this);
+		std::cout << this->_name << " signed " << rhs.getName() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) {
+	form.execute(*this);
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

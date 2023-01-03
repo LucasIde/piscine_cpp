@@ -6,12 +6,12 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:26 by lide              #+#    #+#             */
-/*   Updated: 2022/12/30 15:46:34 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/03 20:27:55 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
-#define AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <iostream>
 # include <string>

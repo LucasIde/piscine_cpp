@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 17:25:47 by lide              #+#    #+#             */
-/*   Updated: 2023/01/03 17:25:48 by lide             ###   ########.fr       */
+/*   Created: 2023/01/03 17:25:37 by lide              #+#    #+#             */
+/*   Updated: 2023/01/03 20:57:04 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include <exception>
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -36,6 +39,8 @@ class Bureaucrat
 
 		const std::string &getName() const;
 		int getGrade() const;
+		void signForm(AForm &rhs) const;
+		void executeForm(AForm const &form);
 
 		class GradeTooHighException : public std::exception {
 			public:
