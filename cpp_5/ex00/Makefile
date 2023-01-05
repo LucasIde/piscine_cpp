@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2023/01/02 17:49:21 by lide             ###   ########.fr        #
+#    Updated: 2023/01/05 18:29:12 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ GREEN=$ \x1b[32m
 
 SRCS		=	main.cpp\
 				Bureaucrat.cpp
-
 
 NAME		=	Bureaucrat
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
