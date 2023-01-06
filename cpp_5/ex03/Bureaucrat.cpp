@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:39:27 by lide              #+#    #+#             */
-/*   Updated: 2023/01/05 18:27:06 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/06 17:44:50 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string &name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name) {
 	if (grade > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	else if (grade < 1)

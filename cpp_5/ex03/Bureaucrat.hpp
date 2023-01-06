@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:25:37 by lide              #+#    #+#             */
-/*   Updated: 2023/01/03 20:57:04 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/06 17:47:04 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Bureaucrat
 
 	public:
 		Bureaucrat();
-		Bureaucrat(std::string &name, int grade);
+		Bureaucrat(const std::string &name, int grade);
 		Bureaucrat(Bureaucrat const &src);
 		~Bureaucrat();
 

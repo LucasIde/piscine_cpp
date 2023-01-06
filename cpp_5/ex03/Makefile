@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2023/01/05 17:38:50 by lide             ###   ########.fr        #
+#    Updated: 2023/01/06 17:42:20 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,11 @@ SRCS		=	main.cpp\
 				AForm.cpp\
 				ShrubberyCreationForm.cpp\
 				RobotomyRequestForm.cpp\
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp\
+				Intern.cpp
 
 
-NAME		=	Form
+NAME		=	Intern
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}
