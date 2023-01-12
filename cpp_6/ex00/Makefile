@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2023/01/09 15:06:46 by lide             ###   ########.fr        #
+#    Updated: 2023/01/12 19:38:12 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ END=$ \x1b[0m
 RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp\
+				Convertor.cpp
 
 NAME		=	conversion
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98

@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:02:05 by lide              #+#    #+#             */
-/*   Updated: 2023/01/12 15:57:14 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/12 19:23:03 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <cstdlib>
+# include <climits>
+# include <cfloat>
 
 class Convertor
 {
@@ -34,10 +36,10 @@ class Convertor
 
 		Convertor &operator=(Convertor const &rhs);
 
-		bool	to_char();
-		bool	to_int();
-		bool	to_float();
-		bool	to_double();
+		void	to_char();
+		void	to_int();
+		void	to_float();
+		void	to_double();
 
 		class EmptyString : std::exception {
 			public:

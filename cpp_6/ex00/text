@@ -1,7 +1,0 @@
-doit utiliser dynamic_cast<cast>(value) renvoi NULL si faux (donc pointeur (if else))
-
-si le cast est utiliser avec une reference renvoi une exception appelé std::bad_cast & (try catch)
-
-
-operator int() {return static_cast<int>(this->value)}
-permet un cast implicite vers un int
