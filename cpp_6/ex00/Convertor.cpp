@@ -1,69 +1,118 @@
 
 #include "Convertor.hpp"
 
-Convertor::Convertor() : _toconvert(""), _char('\0'), _int(0), _float(0.0f), _double(0.0) {}
+Convertor::Convertor() : _cast(0.0), _nan(0) {}
 
-Convertor::Convertor(const std::string &toconvert) : _toconvert(toconvert) {
-	char *end;
-	if (toconvert.empty())
+Convertor::Convertor(const std::string &str) : _nan(0) {
+	if (str.empty())
 		throw(Convertor::EmptyString());
-	//check inf nan
-	this->_cast = strtof(toconvert.c_str(), &end);
-	//check erreur
-	to_char();
-	to_int();
-	to_float();
-	to_double();
+	const char *conv = str.c_str();
+	if (!str.compare("nan") || !str.compare("nanf"))
+		this->_nan = 1;
+	if (str.size() == 1)
+	{
+		if (isdigit(conv[0]))
+			this->_cast = atof(conv);
+		else
+			this->_cast = static_cast<double>(conv[0]);
+	}
+	else
+	{
+		char *end;
+		long tmp = strtol(conv, &end, 10);
+		if (!*end)
+		{
+			if (tmp < INT_MIN || tmp > INT_MAX)
+				throw(Convertor::BadInput());
+			else
+				this->_cast = static_cast<double>(tmp);
+		}
+		else
+		{
+			end = NULL;
+			double tmp2 = strtod(conv, &end);
+			if (end[0] == 'f')
+				this->_cast = static_cast<double>(tmp2);
+			else if (*end)
+				throw(Convertor::BadInput());
+			else
+				this->_cast = tmp2;
+		}
+	}
 }
 
-Convertor::Convertor(Convertor const &rhs) : _toconvert(rhs._toconvert), _char(rhs._char), _int(rhs._int), _float(rhs._float), _double(rhs._double) {}
+Convertor::Convertor(Convertor const &rhs) : _cast(rhs._cast), _nan(rhs._nan) {}
 
 Convertor::~Convertor() {}
 
 Convertor &Convertor::operator=(Convertor const &rhs) {
+	this->_cast = rhs._cast;
+	this->_nan = rhs._nan;
 	return (*this);
 }
 
-void	Convertor::to_char() {
-	if (this->_cast < 0 || this->_cast > 127)
-		std::cout << "char: impossible" << std::endl;
-	if (this->_cast < 33 || this->_cast > 126)
-	{
-		std::cout << "char: Non displayable" << std::endl;
-		this->_char = static_cast<char>(this->_cast);
-	}
+char	Convertor::to_char() const {
+	if (this->_cast < 0 || this->_cast > 127 || this->_nan == 1)
+		throw (Convertor::Impossible());
+	else if (this->_cast < 32 || this->_cast > 126)
+		throw (Convertor::NonDisplay());
 	else
-	{
-		this->_char = static_cast<char>(this->_cast);
-		std::cout << "char: \'" << this->_char << "\'" << std::endl;
-	}
+		return (static_cast<char>(this->_cast));
 }
 
-void	Convertor::to_int() {
-	if (this->_cast < INT_MIN || this->_cast > INT_MAX)
-		std::cout << "int: impossible" << std::endl;
+int	Convertor::to_int() const {
+	if (this->_cast < INT_MIN || this->_cast > INT_MAX || this->_nan == 1)
+		throw (Convertor::Impossible());
 	else
-	{
-		this->_int = static_cast<int>(this->_cast);
-		std::cout << "int: " << this->_int << std::endl;
-	}
+		return (static_cast<int>(this->_cast));
 }
 
-void	Convertor::to_float() {
-	if (this->_cast < FLT_MIN || this->_cast > FLT_MAX)
-		std::cout << "float: impossible" << std::endl;
-	else
-	{
-		this->_float = static_cast<float>(this->_cast);
-		std::cout << "float: " << this->_float << std::endl;
-	}
+float	Convertor::to_float() const {
+		return (static_cast<float>(this->_cast));
 }
 
-void	Convertor::to_double() {
-	this->_double = this->_cast;
-	std::cout << "double: " << this->_double << std::endl;
+double	Convertor::get_cast() const {
+	return (this->_cast);
+}
+
+const char *Convertor::NonDisplay::what() const throw() {
+	return ("Non Displayable");
+}
+
+const char *Convertor::Impossible::what() const throw() {
+	return ("impossible");
+}
+const char *Convertor::BadInput::what() const throw() {
+	return ("wrong input");
 }
 
 const char *Convertor::EmptyString::what() const throw() {
-	return ("need a value to convert");
+	return ("wrong usage: ./convertor <type>");
+}
+
+std::ostream &operator<<(std::ostream &o, Convertor const &rhs) {
+	o << "char: ";
+	try {
+		char a = rhs.to_char();
+		o << "\'" << a << "\'" << std::endl;
+	}
+	catch (std::exception &e) {
+		o << e.what() << std::endl;
+	}
+	o << "int: ";
+	try {
+		o << rhs.to_int() << std::endl;
+	}
+	catch (std::exception &e) {
+		o << e.what() << std::endl;
+	}
+	o << "float: ";
+	try {
+		o << rhs.to_float() << "f" << std::endl;
+	}
+	catch (std::exception &e) {
+		o << e.what() << std::endl;
+	}
+	o << "double: " << rhs.get_cast() << std::endl;
+	return (o);
 }

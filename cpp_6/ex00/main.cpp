@@ -7,9 +7,9 @@ int	main(int argc, char **argv) {
 		std::cout << "can't convert multiple value" << std::endl;
 		return (1);
 	}
-	const std::string tmp = argv[1];
 	try {
-		Convertor tmp(tmp);
+		Convertor tmp(argv[1]);
+		std::cout << tmp;
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

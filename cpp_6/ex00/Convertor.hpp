@@ -1,19 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Convertor.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 13:02:05 by lide              #+#    #+#             */
-/*   Updated: 2023/01/12 19:23:03 by lide             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef CONVERTOR_HPP
  #define CONVERTOR_HPP
 
 # include <iostream>
+# include <string>
+# include <cctype>
 # include <cstdlib>
 # include <climits>
 # include <cfloat>
@@ -21,30 +12,39 @@
 class Convertor
 {
 	private:
-		const std::string	&_toconvert;
-		char				_char;
-		int					_int;
-		float				_float;
-		double				_double;
-		double				_cast;
+		double	_cast;
+		bool	_nan;
 
 	public:
 		Convertor();
-		Convertor(const std::string &toconvert);
+		Convertor(const std::string &str);
 		Convertor(Convertor const &src);
-		virtual ~Convertor();
+		~Convertor();
 
 		Convertor &operator=(Convertor const &rhs);
 
-		void	to_char();
-		void	to_int();
-		void	to_float();
-		void	to_double();
+		char	to_char() const;
+		int		to_int() const;
+		float	to_float() const;
+		double	get_cast() const;
 
-		class EmptyString : std::exception {
-			public:
+		class NonDisplay : public std::exception {
+				virtual const char *what() const throw();
+		};
+
+		class Impossible : public std::exception {
+				virtual const char *what() const throw();
+		};
+
+		class BadInput : public std::exception {
+				virtual const char *what() const throw();
+		};
+
+		class EmptyString : public std::exception {
 				virtual const char *what() const throw();
 		};
 };
+
+std::ostream &operator<<(std::ostream &o, Convertor const &rhs);
 
 #endif
