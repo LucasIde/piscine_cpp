@@ -21,7 +21,13 @@ Brain &Brain::operator=(Brain const &rhs) {
 }
 
 std::string &Brain::getIdea(int i) {
-	return (this->ideas[i]);
+	if (i < 0 || i > 99)
+	{
+		std::cout << "range of ideas are not that big" << std::endl << "the last accecible idea is" <<std::endl;
+		return (this->ideas[99]);
+	}
+	else
+		return (this->ideas[i]);
 }
 
 void Brain::setIdea(const std::string &idea) {

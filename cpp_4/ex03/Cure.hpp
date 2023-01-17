@@ -1,6 +1,6 @@
 
 #ifndef CURE_HPP
-#define CURE_HPP
+# define CURE_HPP
 
 # include <iostream>
 # include "AMateria.hpp"

@@ -18,7 +18,7 @@ WrongCat::WrongCat() {
 	std::cout << "a WrongCat is born" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const &src) {
+WrongCat::WrongCat(WrongCat const &src) : WrongAnimal() {
 	this->type = src.type;
 	std::cout << "WrongCat Cloned" << std::endl;
 }

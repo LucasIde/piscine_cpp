@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:39:32 by lide              #+#    #+#             */
-/*   Updated: 2022/12/23 17:32:33 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 18:12:01 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog() {
 	this->brain = new Brain();
 }
 
-Dog::Dog(Dog const &src) {
+Dog::Dog(Dog const &src) : Animal() {
 	this->brain = new Brain();
 	*this = src;
 	std::cout << "Dog Cloned" << std::endl;
@@ -36,7 +36,7 @@ Dog &Dog::operator=(Dog const &rhs) {
 }
 
 std::string &Dog::getIdea(int i) {
-	return (this->brain->getIdea(i));
+		return (this->brain->getIdea(i));
 }
 
 void Dog::setIdea(const std::string &idea) {

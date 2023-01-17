@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:39:32 by lide              #+#    #+#             */
-/*   Updated: 2022/12/23 17:32:33 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 18:21:23 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog() {
 	this->brain = new Brain();
 }
 
-Dog::Dog(Dog const &src) {
+Dog::Dog(Dog const &src) : A_Animal() {
 	this->brain = new Brain();
 	*this = src;
 	std::cout << "Dog Cloned" << std::endl;

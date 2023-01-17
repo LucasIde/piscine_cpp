@@ -5,14 +5,14 @@ Cure::Cure() {
 	this->_type = "cure";
 }
 
-Cure::Cure(Cure const &rhs) {
+Cure::Cure(Cure const &rhs) : AMateria() {
 	this->_type = rhs._type;
 }
 
 Cure::~Cure() {}
 
 Cure &Cure::operator=(Cure const &rhs) {
-	this->_type = rhs._type;//check si utile
+	this->_type = rhs._type;
 	return (*this);
 }
 

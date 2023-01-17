@@ -6,12 +6,12 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:17 by lide              #+#    #+#             */
-/*   Updated: 2022/12/30 15:42:44 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 19:10:34 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include "AMateria.hpp"
 

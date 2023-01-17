@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:39:32 by lide              #+#    #+#             */
-/*   Updated: 2022/12/20 18:11:52 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 17:52:49 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog() {
 	std::cout << "a Dog is born" << std::endl;
 }
 
-Dog::Dog(Dog const &src) {
+Dog::Dog(Dog const &src) : Animal() {
 	this->type = src.type;
 	std::cout << "Dog Cloned" << std::endl;
 }

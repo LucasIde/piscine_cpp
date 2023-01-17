@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:42 by lide              #+#    #+#             */
-/*   Updated: 2022/12/30 16:00:34 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 19:07:44 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ Ice::Ice() {
 	this->_type = "ice";
 }
 
-Ice::Ice(Ice const &rhs) {
+Ice::Ice(Ice const &rhs) : AMateria() {
 	this->_type = rhs._type;
 }
 
 Ice::~Ice() {}
 
 Ice &Ice::operator=(Ice const &rhs) {
-	this->_type = rhs._type;//check si utile
+	this->_type = rhs._type;
 	return (*this);
 }
 

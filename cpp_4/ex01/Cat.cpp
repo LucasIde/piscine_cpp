@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 17:51:14 by lide              #+#    #+#             */
-/*   Updated: 2022/12/23 17:21:32 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 18:00:05 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Cat::Cat() {
 	this->brain = new Brain();
 }
 
-Cat::Cat(Cat const &src) {
+Cat::Cat(Cat const &src) : Animal() {
 	this->brain = new Brain();
 	*this = src;
 	std::cout << "Cat Cloned" << std::endl;
