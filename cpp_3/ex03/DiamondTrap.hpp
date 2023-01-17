@@ -6,12 +6,15 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 17:56:36 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 18:42:18 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 17:30:45 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
+
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap {
 
@@ -20,7 +23,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 	public:
 		DiamondTrap();
-		DiamondTrap(std::string &name);
+		DiamondTrap(const std::string &name);
 		DiamondTrap(DiamondTrap const &src);
 		~DiamondTrap();
 
@@ -28,3 +31,5 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 		void whoAmI();
 };
+
+#endif

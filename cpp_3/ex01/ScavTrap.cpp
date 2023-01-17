@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:50:37 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 15:11:28 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 16:48:05 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "default ScavTrap is alive" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string &name) : ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
 	this->_Hit_points = 100;
 	this->_Energy_points = 50;
 	this->_Attack_damage = 20;
 	std::cout << "ScavTrap " << name << " is alive" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src) {
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src){
 	std::cout << "ScavTrap " << src._Name << " has been cloned" << std::endl;
-	*this = src;
 }
 
 ScavTrap::~ScavTrap() {

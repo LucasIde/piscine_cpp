@@ -6,11 +6,14 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:27:39 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 16:46:12 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 17:28:44 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
+# include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap {
 
@@ -18,7 +21,7 @@ class FragTrap : public ClapTrap {
 
 	public:
 		FragTrap();
-		FragTrap(std::string &name);
+		FragTrap(const std::string &name);
 		FragTrap(FragTrap const &src);
 		~FragTrap();
 
@@ -26,3 +29,5 @@ class FragTrap : public ClapTrap {
 
 		void highFivesGuys(void);
 };
+
+#endif

@@ -6,15 +6,15 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 21:11:11 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 15:10:24 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 17:26:51 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-#include <string>
-#include <iostream>
+# include <string>
+# include <iostream>
 
 class ClapTrap {
 	protected:
@@ -25,7 +25,7 @@ class ClapTrap {
 
 	public:
 		ClapTrap(void);
-		ClapTrap(std::string &name);
+		ClapTrap(const std::string &name);
 		ClapTrap(ClapTrap const &src);
 		~ClapTrap(void);
 

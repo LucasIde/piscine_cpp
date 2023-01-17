@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:25:21 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 19:09:29 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 16:32:30 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(void) : _Name("default_clap_name"), _Hit_points(10), _Energy_
 	std::cout << "default_Clap_name is alive" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string &name) : _Name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0) {
+ClapTrap::ClapTrap(const std::string &name) : _Name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0) {
 	std::cout << "Claptrap " << name << " is alive" << std::endl;
 }
 
@@ -50,7 +50,7 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs) {
 	}
 
 	void ClapTrap::takeDamage(unsigned int amount) {
-		if ((this->_Hit_points - (long)amount) < -2147483648)
+		if ((this->_Hit_points - static_cast<long>(amount)) < -2147483648)
 			this->_Hit_points = -2147483648;
 		else
 			this->_Hit_points -= amount;

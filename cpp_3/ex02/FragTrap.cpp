@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:39:24 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 17:24:38 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 16:55:46 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@ FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "default FragTrap is alive" << std::endl;
 }
 
-FragTrap::FragTrap(std::string &name) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
 	this->_Hit_points = 100;
 	this->_Energy_points = 100;
 	this->_Attack_damage = 30;
 	std::cout << "FragTrap " << name << " is alive" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const &src) {
-	*this = src;
+FragTrap::FragTrap(FragTrap const &src) : ClapTrap(src) {
 	std::cout << "FragTrap " << src._Name << " has been cloned" << std::endl;
 }
 

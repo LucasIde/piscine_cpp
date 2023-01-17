@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:32:53 by lide              #+#    #+#             */
-/*   Updated: 2022/12/14 17:24:17 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/17 16:34:38 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int main(void)
 {
-	std::string name2 = "Frag";
-	FragTrap Frag(name2);
+	FragTrap Frag("Frag");
 
 	Frag.attack("trap");
 	Frag.highFivesGuys();
