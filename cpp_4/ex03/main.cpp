@@ -37,6 +37,7 @@ int main()
 	me->use(1, *bob);
 	delete bob;
 	delete me;
+	delete src2;
 	delete src3;
 	return 0;
 }
