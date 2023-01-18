@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 18:59:10 by lide              #+#    #+#              #
-#    Updated: 2022/12/23 15:33:00 by lide             ###   ########.fr        #
+#    Updated: 2023/01/18 15:46:14 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS		=	main.cpp\
 				WrongCat.cpp\
 				Brain.cpp
 
-NAME		=	Polymorphism
+NAME		=	Brain
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 CXX			=	c++
 OBJS		=	${SRCS:.cpp=.o}

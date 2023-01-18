@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:26 by lide              #+#    #+#             */
-/*   Updated: 2023/01/03 20:27:55 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/18 15:41:11 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class AMateria
 		virtual ~AMateria();
 
 		AMateria &operator=(AMateria const &rhs);
-		std::string const & getType() const; //Returns the materia type
+		std::string const & getType() const;
 		virtual void use(ICharacter &target);
 		virtual AMateria* clone() const = 0;
 };

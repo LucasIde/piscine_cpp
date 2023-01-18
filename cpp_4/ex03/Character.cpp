@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:26:37 by lide              #+#    #+#             */
-/*   Updated: 2022/12/30 17:17:24 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/18 15:44:20 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void Character::equip(AMateria *m) {
 	{
 		if (this->spell[i] == NULL)
 		{
-			this->spell[i] = m;//doit peut etre delete le materia si pas de place
+			this->spell[i] = m;
 			return ;
 		}
 	}

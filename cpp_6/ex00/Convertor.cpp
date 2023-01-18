@@ -4,6 +4,8 @@
 Convertor::Convertor() : _cast(0.0), _nan(0) {}
 
 Convertor::Convertor(const std::string &str) : _nan(0) {
+	char *end;
+
 	if (str.empty())
 		throw(Convertor::EmptyString());
 	const char *conv = str.c_str();
@@ -12,13 +14,12 @@ Convertor::Convertor(const std::string &str) : _nan(0) {
 	if (str.size() == 1)
 	{
 		if (isdigit(conv[0]))
-			this->_cast = atof(conv);
+			this->_cast = strtod(conv, &end);
 		else
 			this->_cast = static_cast<double>(conv[0]);
 	}
 	else
 	{
-		char *end;
 		long tmp = strtol(conv, &end, 10);
 		if (!*end)
 		{

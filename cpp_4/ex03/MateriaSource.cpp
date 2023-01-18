@@ -6,7 +6,7 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:38:49 by lide              #+#    #+#             */
-/*   Updated: 2022/12/30 18:07:06 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/18 15:44:01 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void MateriaSource::learnMateria(AMateria *src) {
 	{
 		if (this->incantation[i] == NULL)
 		{
-			this->incantation[i] = src;//doit peut etre delete le materia si pas de place
+			this->incantation[i] = src;
 			return ;
 		}
 	}
