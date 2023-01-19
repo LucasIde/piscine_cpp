@@ -3,6 +3,7 @@
  #define CONVERTOR_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <cctype>
 # include <cstdlib>

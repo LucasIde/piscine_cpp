@@ -14,6 +14,7 @@ int	main(int argc, char **argv) {
 	}
 	try {
 		Convertor tmp(argv[1]);
+		std::cout << std::fixed << std::setprecision(1);
 		std::cout << tmp;
 	}
 	catch (std::exception &e) {
