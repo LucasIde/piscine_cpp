@@ -33,7 +33,7 @@ Convertor::Convertor(const std::string &str) : _nan(0) {
 			end = NULL;
 			double tmp2 = strtod(conv, &end);
 			if (end[0] == 'f')
-				this->_cast = static_cast<double>(tmp2);
+				this->_cast = tmp2;
 			else if (*end)
 				throw(Convertor::BadInput());
 			else
@@ -53,7 +53,7 @@ Convertor &Convertor::operator=(Convertor const &rhs) {
 }
 
 char	Convertor::to_char() const {
-	if (this->_cast < 0 || this->_cast > 127 || this->_nan == 1)
+	if (this->_cast < CHAR_MIN || this->_cast > CHAR_MAX || this->_nan == 1)
 		throw (Convertor::Impossible());
 	else if (this->_cast < 32 || this->_cast > 126)
 		throw (Convertor::NonDisplay());
