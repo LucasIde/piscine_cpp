@@ -6,11 +6,14 @@
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:24:50 by lide              #+#    #+#             */
-/*   Updated: 2023/01/20 18:03:03 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/23 18:06:15 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
+
+# include <iostream>
 
 template<typename T>
 void swap(T &lhs, T &rhs) {
@@ -29,3 +32,4 @@ T const &max(T const &lhs, T const &rhs) {
 	return (lhs > rhs ? lhs : rhs);
 }
 
+#endif

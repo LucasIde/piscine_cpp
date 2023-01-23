@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Iter.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lide <lide@student.s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:26:17 by lide              #+#    #+#             */
-/*   Updated: 2023/01/20 18:03:46 by lide             ###   ########.fr       */
+/*   Updated: 2023/01/23 18:07:00 by lide             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ITER_HPP
+# define ITER_HPP
+
+# include <iostream>
 
 template<typename T>
 void print(T const &value) {
@@ -22,3 +25,5 @@ void iter(A *array, size_t len, void (*ft)(A const &)) {
 	for (size_t i = 0; i < len; i++)
 		ft(array[i]);
 }
+
+#endif
