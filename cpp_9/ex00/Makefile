@@ -6,7 +6,7 @@
 #    By: lide <lide@student.s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:50:26 by lide              #+#    #+#              #
-#    Updated: 2023/03/15 15:50:38 by lide             ###   ########.fr        #
+#    Updated: 2023/03/24 15:33:36 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
 SRCS		=	main.cpp\
+				BitcoinExchange.cpp
 
 NAME		= btc
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
