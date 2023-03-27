@@ -16,15 +16,14 @@ class BitcoinExchange
 	const std::string				_file_name;
 	void create_database(void);
 	void create_file_value(void);
-
-
+	int check_line(std::string str);
 
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const std::string file);
 		BitcoinExchange(BitcoinExchange const &src);
 		~BitcoinExchange();
-		int find_value();
+		double find_value(std::string date);
 
 		BitcoinExchange &operator=(BitcoinExchange const &rhs);
 };
