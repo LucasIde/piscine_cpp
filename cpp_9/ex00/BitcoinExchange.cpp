@@ -37,7 +37,7 @@ int check_date(std::string date) {
 		return (1);
 	n.assign(date,0,4);
 	nu = atoi(n.c_str());
-	if (nu < 2000 || nu > 2100)
+	if (nu < 2009 || nu > 2100)
 		return (1);
 	n.assign(date,5,2);
 	nu = atoi(n.c_str());
@@ -53,7 +53,7 @@ int check_date(std::string date) {
 int check_num(std::string num) {
 	double n;
 
-	if (num.find_first_not_of("-0123456789") != std::string::npos) {
+	if (num.find_first_not_of("-0123456789.") != std::string::npos) {
 		std::cout << "Error: only numbers are accepted for convertion." << std::endl;
 		return (1);
 	}
@@ -89,16 +89,16 @@ int BitcoinExchange::check_line(std::string str) {
 	}
 	date = str.substr(0 , pos);
 	while (sp != -1){
-	sp = date.find(' ');
-	if (sp != -1)
-		date.erase(pos, 1);
+		sp = date.find(" ");
+		if (sp != -1)
+			date.erase(sp, 1);
 	}
 	num = str.substr(pos + 1, len - (pos + 1));
 	sp = 0;
 	while (sp != -1){
-	sp = num.find(' ');
-	if (sp != -1)
-		num.erase(pos, 1);
+		sp = num.find(' ');
+		if (sp != -1)
+			num.erase(sp, 1);
 	}
 	if (check_date(date)) {
 		std::cout << "Error: bad input => " << str << "." << std::endl;
@@ -107,12 +107,11 @@ int BitcoinExchange::check_line(std::string str) {
 	if (check_num(num))
 		return (1);
 	n = strtod(num.c_str(), NULL);
-	d = find_value(date);//doit mofidifier find_value
+	d = find_value(date);
 	std::cout << date << " => " << num << " = " << n * d << std::endl;
 	return(0);
 }
 
-//do the convertion
 void BitcoinExchange::create_file_value() {
 	std::ifstream	infile(this->_file_name);
 	std::string		save;
@@ -123,6 +122,11 @@ void BitcoinExchange::create_file_value() {
 	std::string		str;
 	std::string		convert;
 
+	if (!infile.good())
+	{
+		std::cout << "Error: could not open the file" << std::endl;
+		return;
+	}
 	while (infile.read(file, 1))
 		save += file;
 	infile.close();
@@ -201,7 +205,6 @@ std::string	change_day(std::string date) {
 	else
 		day = change_number(day);
 	d = year + '-' + month + '-' + day;
-	std::cout << d << std::endl;
 	return (d);
 }
 
