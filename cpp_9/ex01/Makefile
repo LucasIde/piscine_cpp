@@ -6,7 +6,7 @@
 #    By: lide <lide@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:50:26 by lide              #+#    #+#              #
-#    Updated: 2023/03/29 18:15:21 by lide             ###   ########.fr        #
+#    Updated: 2023/03/31 17:25:06 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ END=$ \x1b[0m
 RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp\
+				RPN.cpp
 
 NAME		= RPN
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98

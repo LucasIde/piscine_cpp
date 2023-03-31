@@ -15,7 +15,7 @@ class RPN
 
 	public:
 		RPN();
-		RPN(const std::string rhs;
+		RPN(const std::string rhs);
 		RPN(RPN const &src);
 		~RPN();
 

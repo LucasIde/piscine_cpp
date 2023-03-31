@@ -10,6 +10,6 @@ int main(int argc, char **argv) {
 		std::cout << "Error: too many argument." << std::endl;
 		return (1);
 	}
-	RPN(argv[1]);
+	(RPN(argv[1]));
 	return (0);
 }

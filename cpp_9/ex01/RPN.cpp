@@ -8,11 +8,12 @@ RPN::RPN(const std::string rhs) {
 	execute_RPN();
 }
 
-RPN::RPN(RPN const &rhs) {}
+RPN::RPN(RPN const &rhs) {*this = rhs;}
 
 RPN::~RPN() {}
 
 RPN &RPN::operator=(RPN const &rhs) {
+	(void)rhs;// a modifier
 	return (*this);
 }
 
@@ -21,7 +22,8 @@ void RPN::create_stack(std::string rhs) {
 	size_t pos = 0;
 	size_t sp;
 
-	if (rhs.find_first_not_of("123456789+-/*") != std::string::npos) {
+	//probleme avec la gestion de ma stack espace ou il ne devrait pas
+	if (rhs.find_first_not_of("123456789+-/* ") != std::string::npos) {
 		std::cout << "only charchaters (123456789+-/*) are accepted. Number also always be less than 10." << std::endl;
 		return;
 	}
@@ -39,48 +41,60 @@ void RPN::create_stack(std::string rhs) {
 }
 
 void RPN::execute_RPN() {
+	std::stack<int> stack2;
 	std::string tmp;
-	int i;
-	int j;
+	int nb;
+	int i = -1;
+	int j = -1;
 
 	while(!this->_stack.empty())
 	{
-		//marche pas pour l'étape d'apres;
 		tmp = this->_stack.top();
-		if (tmp.find_first_not_of("123456789") != std::string::npos)
+		if (tmp.find_first_not_of("123456789") != std::string::npos && i == -1 && j == -1)
 		{
 			std::cout << "error" << std::endl;
 			return;
 		}
-		i = atoi(tmp.c_str());
-		tmp = this->_stack.top();
-		if (tmp.find_first_not_of("123456789") != std::string::npos)
-		{
-			std::cout << "error" << std::endl;
-			return;
+		if (tmp.find_first_not_of("123456789") == std::string::npos) {
+			nb = atoi(tmp.c_str());
+			if (nb < 1 || nb > 10)
+			{
+				std::cout << "Error: number need to be between 10 and 1" << std::endl;//a refaire
+				return;
+			}
+			if (i == -1)
+				i = nb;
+			else if (j == -1)
+				j = nb;
+			else {
+				stack2.push(i);
+				i = j;
+				j = -1;
+			}
 		}
-		j = atoi(tmp.c_str());
-		if (i > 10 || j > 10 || i < 0 || j < 0)
-		{
-			std::cout << "Error: number is between 10 and 0" << std::endl;//a refaire
-			return;
+		else {
+			if (j == -1)
+			{
+				if (stack2.empty()){
+					std::cout << "Error: " << std::endl;
+					return;
+				}
+				j = i;
+				i = stack2.top();
+				stack2.pop();
+			}
+			nb = tmp[0];
+			switch (nb) {
+				case '+': i = i + j;
+					break; 
+				case '-': i = i - j;
+					break; 
+				case '/': i = i / j;
+					break; 
+				case '*': i = i * j;
+					break; 
+			}
 		}
-
+		std::cout << i <<std::endl;
 	}
 }
-
-// int main(int argc, char **argv) {
-// 	int len = argc - 1;
-// 	std::stack<std::string> stack;
-// 	while (len != 0)
-// 	{
-// 		stack.push(argv[len]);
-// 		len--;
-// 	}
-// 	while (!stack.empty())
-// 	{
-// 	 std::cout << stack.top() << std::endl;
-// 	 stack.pop();
-// 	}
-// 	return (0);
-// }
