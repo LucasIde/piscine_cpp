@@ -13,26 +13,32 @@ RPN::RPN(RPN const &rhs) {*this = rhs;}
 RPN::~RPN() {}
 
 RPN &RPN::operator=(RPN const &rhs) {
-	(void)rhs;// a modifier
+	this->_stack = rhs._stack;
 	return (*this);
 }
 
 void RPN::create_stack(std::string rhs) {
 	std::stack<std::string> tmp;
+	std::string str;
 	size_t pos = 0;
+	size_t len = rhs.length();
 	size_t sp;
 
-	//probleme avec la gestion de ma stack espace ou il ne devrait pas
 	if (rhs.find_first_not_of("123456789+-/* ") != std::string::npos) {
-		std::cout << "only charchaters (123456789+-/*) are accepted. Number also always be less than 10." << std::endl;
+		std::cout << "only charchaters (123456789+-/*) are accepted. Number also need to be less than 10." << std::endl;
 		return;
 	}
 	sp = rhs.find(" ");
 	while (sp != std::string::npos)
 	{
-		tmp.push(rhs.assign(pos, sp - pos));
+		str.assign(rhs, pos, sp - pos);
+		tmp.push(str);
 		pos = sp + 1;
 		sp = rhs.find(" ", pos);
+		if (sp == std::string::npos){
+			str.assign(rhs, pos, len - pos);
+			tmp.push(str);
+		}
 	}
 	while(!tmp.empty()) {
 		this->_stack.push(tmp.top());
@@ -44,39 +50,39 @@ void RPN::execute_RPN() {
 	std::stack<int> stack2;
 	std::string tmp;
 	int nb;
-	int i = -1;
-	int j = -1;
+	int i = -2147483648;
+	int j = -2147483648;
 
 	while(!this->_stack.empty())
 	{
 		tmp = this->_stack.top();
-		if (tmp.find_first_not_of("123456789") != std::string::npos && i == -1 && j == -1)
+		if (tmp.find_first_not_of("123456789") != std::string::npos && i == -2147483648 && j == -2147483648)
 		{
-			std::cout << "error" << std::endl;
+			std::cout << "Error: operation can be the first character" << std::endl;
 			return;
 		}
 		if (tmp.find_first_not_of("123456789") == std::string::npos) {
 			nb = atoi(tmp.c_str());
 			if (nb < 1 || nb > 10)
 			{
-				std::cout << "Error: number need to be between 10 and 1" << std::endl;//a refaire
+				std::cout << "Error: number need to be between 1 and 10" << std::endl;
 				return;
 			}
-			if (i == -1)
+			if (i == -2147483648)
 				i = nb;
-			else if (j == -1)
+			else if (j == -2147483648)
 				j = nb;
 			else {
 				stack2.push(i);
 				i = j;
-				j = -1;
+				j = nb;
 			}
 		}
 		else {
-			if (j == -1)
+			if (j == -2147483648)
 			{
 				if (stack2.empty()){
-					std::cout << "Error: " << std::endl;
+					std::cout << "Error: impossible equation" << std::endl;
 					return;
 				}
 				j = i;
@@ -86,15 +92,24 @@ void RPN::execute_RPN() {
 			nb = tmp[0];
 			switch (nb) {
 				case '+': i = i + j;
+					j = -2147483648;
 					break; 
 				case '-': i = i - j;
+					j = -2147483648;
 					break; 
 				case '/': i = i / j;
+					j = -2147483648;
 					break; 
 				case '*': i = i * j;
+					j = -2147483648;
 					break; 
 			}
 		}
-		std::cout << i <<std::endl;
+		this->_stack.pop();
 	}
+	if (!stack2.empty()) {
+		std::cout << "Error: missing operator" << std::endl;
+		return;
+	}
+	std::cout << i <<std::endl;
 }
