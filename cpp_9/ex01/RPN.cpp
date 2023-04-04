@@ -5,7 +5,7 @@ RPN::RPN() {}
 
 RPN::RPN(const std::string rhs) {
 	create_stack(rhs);
-	execute_RPN();
+	// execute_RPN();
 }
 
 RPN::RPN(RPN const &rhs) {*this = rhs;}
@@ -53,6 +53,10 @@ void RPN::execute_RPN() {
 	int i = -2147483648;
 	int j = -2147483648;
 
+	if (this->_stack.empty()) {
+		std::cout << "can't execute without equation" << std::endl;
+		return;
+	}
 	while(!this->_stack.empty())
 	{
 		tmp = this->_stack.top();

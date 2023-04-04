@@ -14,8 +14,6 @@ class BitcoinExchange
 	std::map<std::string , double>	_database;
 	std::map<std::string , double>	_file_value;
 	const std::string				_file_name;
-	void create_database(void);
-	void create_file_value(void);
 	int check_line(std::string str);
 	double find_value(std::string date);
 
@@ -26,6 +24,9 @@ class BitcoinExchange
 		~BitcoinExchange();
 
 		BitcoinExchange &operator=(BitcoinExchange const &rhs);
+
+		void create_database(void);
+		void create_file_value(void);
 };
 
 #endif

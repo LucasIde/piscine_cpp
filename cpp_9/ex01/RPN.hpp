@@ -11,7 +11,6 @@ class RPN
 	private:
 		std::stack<std::string> _stack;
 		void create_stack(std::string);
-		void execute_RPN();
 
 	public:
 		RPN();
@@ -20,6 +19,8 @@ class RPN
 		~RPN();
 
 		RPN &operator=(RPN const &rhs);
+		
+		void execute_RPN();
 };
 
 #endif

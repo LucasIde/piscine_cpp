@@ -3,10 +3,7 @@
 
 BitcoinExchange::BitcoinExchange() : _file_name("") {}
 
-BitcoinExchange::BitcoinExchange(const std::string file) : _file_name(file) {
-	create_database();
-	create_file_value();
-}
+BitcoinExchange::BitcoinExchange(const std::string file) : _file_name(file) {}
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const &rhs) {
 	*this = rhs;
