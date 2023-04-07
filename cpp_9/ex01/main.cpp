@@ -12,7 +12,5 @@ int main(int argc, char **argv) {
 	}
 	RPN equation(argv[1]);
 	equation.execute_RPN();
-	RPN e;
-	e.execute_RPN();
 	return (0);
 }

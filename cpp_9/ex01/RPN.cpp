@@ -5,7 +5,6 @@ RPN::RPN() {}
 
 RPN::RPN(const std::string rhs) {
 	create_stack(rhs);
-	// execute_RPN();
 }
 
 RPN::RPN(RPN const &rhs) {*this = rhs;}

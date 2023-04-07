@@ -216,6 +216,6 @@ double BitcoinExchange::find_value(std::string date) {
 	if (it != this->_database.end())
 		return (it->second);
 	else
-		std::cout << "Error: no match in the database" << std::endl;//check si ok
+		std::cout << "Error: no match in the database" << std::endl;
 	return (0);
 }
