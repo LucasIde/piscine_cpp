@@ -6,7 +6,7 @@
 #    By: lide <lide@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:50:26 by lide              #+#    #+#              #
-#    Updated: 2023/04/04 10:15:16 by lide             ###   ########.fr        #
+#    Updated: 2023/04/07 17:10:21 by lide             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ RED=$ \x1b[31m
 GREEN=$ \x1b[32m
 
 SRCS		=	main.cpp\
+				PmergeMe.cpp
 
 NAME		= 	PmergeMe
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
