@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv) {
 	std::string str[argc - 1];
-	if (argc <= 1) {
+	if (argc == 1) {
 		std::cout << "need something to sort" << std::endl;
 		return (1);
 	}

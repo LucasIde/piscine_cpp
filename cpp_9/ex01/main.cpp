@@ -10,7 +10,9 @@ int main(int argc, char **argv) {
 		std::cout << "Error: too many argument." << std::endl;
 		return (1);
 	}
+
 	RPN equation(argv[1]);
 	equation.execute_RPN();
+	
 	return (0);
 }

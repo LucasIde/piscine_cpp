@@ -25,6 +25,8 @@ void PmergeMe::print_sort(std::string *str) {
 		std::cout << "After: ";
 	for (std::vector<int>::iterator it = this->_vector.begin(); it < this->_vector.end(); it++)
 		std::cout << *it << " ";
+	if (this->_vector.begin() == this->_vector.end())
+		std::cout << *(this->_vector.begin());
 	std::cout << std::endl;
 }
 
@@ -43,7 +45,7 @@ int PmergeMe::create_vector(std::string *str) {
 	sort_vector();
     time = clock() - time;
 	print_sort(str);
-	std::cout << "Time to process a range of " << this->_element << " elements with std::vector : " << (((double)time) / CLOCKS_PER_SEC) << " second" << std::endl;
+	std::cout << "Time to process a range of " << this->_element << " elements with std::vector : " << (((double)time) / CLOCKS_PER_SEC) * 1000 << " milliseconds" << std::endl;
 	return (0);
 }
 
@@ -61,14 +63,14 @@ int PmergeMe::create_deque(std::string *str) {
 	delete [] this->_array;
 	sort_deque();
     time = clock() - time;
-	std::cout << "Time to process a range of " << this->_element << " elements with std::deque : " << ((double)time) / CLOCKS_PER_SEC << " second" << std::endl;
+	std::cout << "Time to process a range of " << this->_element << " elements with std::deque : " << ((double)time) / CLOCKS_PER_SEC * 1000 << " milliseconds" << std::endl;
 	return (0);
 }
 
 int PmergeMe::check_str(std::string *str) {
 	for (size_t i = 0; i < this->_element; i++) {
 		if (str[i].find_first_not_of("1234567890") != std::string::npos) {
-			std::cout << "only postive int are accepted" << std::endl;
+			std::cout << "only postive int are accepted, space are also unauthorised" << std::endl;
 			return (1);
 		}
 	}
@@ -79,7 +81,7 @@ int PmergeMe::str_to_int(std::string *str) {
 	long l;
 	for (size_t i = 0; i < this->_element; i++) {
 		l = strtol(str[i].c_str(), NULL, 10);
-		if (l > INT_MAX) {
+		if (l > INT_MAX || l == 0) {
 			std::cout << "only postive int are accepted" << std::endl;
 			return (1);
 		}

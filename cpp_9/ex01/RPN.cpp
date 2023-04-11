@@ -24,7 +24,7 @@ void RPN::create_stack(std::string rhs) {
 	size_t sp;
 
 	if (rhs.find_first_not_of("123456789+-/* ") != std::string::npos) {
-		std::cout << "only charchaters (123456789+-/*) are accepted. Number also need to be less than 10." << std::endl;
+		std::cout << "only charchaters \"123456789+-/*\" are accepted. Number also need to be less than 10." << std::endl;
 		return;
 	}
 	sp = rhs.find(" ");
@@ -96,7 +96,7 @@ void RPN::execute_RPN() {
 			switch (nb) {
 				case '+': i = i + j;
 					j = -2147483648;
-					break; 
+					break;
 				case '-': i = i - j;
 					j = -2147483648;
 					break; 
@@ -110,7 +110,7 @@ void RPN::execute_RPN() {
 		}
 		this->_stack.pop();
 	}
-	if (!stack2.empty()) {
+	if (!stack2.empty() || j != -2147483648) {
 		std::cout << "Error: missing operator" << std::endl;
 		return;
 	}
