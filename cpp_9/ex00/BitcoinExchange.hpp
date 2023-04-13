@@ -12,7 +12,6 @@ class BitcoinExchange
 {
 	private:
 	std::map<std::string , double>	_database;
-	std::map<std::string , double>	_file_value;
 	const std::string				_file_name;
 	int check_line(std::string str);
 	double find_value(std::string date);

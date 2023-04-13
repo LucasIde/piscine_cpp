@@ -23,7 +23,7 @@ void RPN::create_stack(std::string rhs) {
 	size_t len = rhs.length();
 	size_t sp;
 
-	if (rhs.find_first_not_of("123456789+-/* ") != std::string::npos) {
+	if (rhs.find_first_not_of("0123456789+-/* ") != std::string::npos) {
 		std::cout << "only charchaters \"123456789+-/*\" are accepted. Number also need to be less than 10." << std::endl;
 		return;
 	}
@@ -59,14 +59,14 @@ void RPN::execute_RPN() {
 	while(!this->_stack.empty())
 	{
 		tmp = this->_stack.top();
-		if (tmp.find_first_not_of("123456789") != std::string::npos && i == -2147483648 && j == -2147483648)
+		if (tmp.find_first_not_of("0123456789") != std::string::npos && i == -2147483648 && j == -2147483648)
 		{
 			std::cout << "Error: operation can be the first character" << std::endl;
 			return;
 		}
-		if (tmp.find_first_not_of("123456789") == std::string::npos) {
+		if (tmp.find_first_not_of("0123456789") == std::string::npos) {
 			nb = atoi(tmp.c_str());
-			if (nb < 1 || nb > 10)
+			if (nb < 0 || nb > 10)
 			{
 				std::cout << "Error: number need to be between 1 and 10" << std::endl;
 				return;
@@ -100,7 +100,12 @@ void RPN::execute_RPN() {
 				case '-': i = i - j;
 					j = -2147483648;
 					break; 
-				case '/': i = i / j;
+				case '/':
+					if (j == 0) {
+						std::cout << "you can't divide by 0" << std::endl;
+						return;
+					}
+					i = i / j;
 					j = -2147483648;
 					break; 
 				case '*': i = i * j;

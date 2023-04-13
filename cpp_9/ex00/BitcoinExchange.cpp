@@ -12,7 +12,6 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const &rhs) {
 BitcoinExchange::~BitcoinExchange() {}
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs) {
-	this->_file_value = rhs._file_value;
 	this->_database = rhs._database;
 	return (*this);
 }
@@ -72,7 +71,7 @@ int check_num(std::string num) {
 
 int BitcoinExchange::check_line(std::string str) {
 	int pos = str.find('|');
-	int sp = 0;
+	int sp;
 	double n = 0;
 	double d = 0;
 	size_t len = str.length();
@@ -85,18 +84,14 @@ int BitcoinExchange::check_line(std::string str) {
 		return (1);
 	}
 	date = str.substr(0 , pos);
-	while (sp != -1){
-		sp = date.find(" ");
-		if (sp != -1)
-			date.erase(sp, 1);
-	}
+	sp = date.find(" ");
+	if (sp != -1)
+		date.erase(sp, 1);
 	num = str.substr(pos + 1, len - (pos + 1));
 	sp = 0;
-	while (sp != -1){
-		sp = num.find(' ');
-		if (sp != -1)
-			num.erase(sp, 1);
-	}
+	sp = num.find(' ');
+	if (sp != -1)
+		num.erase(sp, 1);
 	if (check_date(date)) {
 		std::cout << "Error: bad input => " << str << "." << std::endl;
 		return (1);
@@ -131,7 +126,7 @@ void BitcoinExchange::create_file_value() {
 	len = save.length();
 	max = save.rfind('\n');
 	pos = save.find('\n');
-	for (int i = 0; pos < len && pos < max; i++)
+	for (int i = 0; pos < len && pos <= max; i++)
 	{
 		i = pos + 1;
 		pos = save.find('\n', i);
@@ -209,7 +204,7 @@ double BitcoinExchange::find_value(std::string date) {
 	std::map<std::string, double>::iterator it;
 
 	it = this->_database.find(date);
-	while (it == this->_database.end() && date != "2009-01-01") {
+	while (it == this->_database.end() && date != "2009-01-01") {//chercher la date la plus petite disponible avec check date et remplacer 2009
 		date = change_day(date);
 		it = this->_database.find(date);
 	}
