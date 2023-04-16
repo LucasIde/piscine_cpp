@@ -22,7 +22,7 @@ void BitcoinExchange::create_database() {
 	std::string		save;
 	char			file[2];
 	size_t			max = 0;
-	size_t			pos = 18;
+	size_t			pos;
 	size_t			len;
 	std::string		day;
 	std::string		convert;
@@ -31,6 +31,7 @@ void BitcoinExchange::create_database() {
 		save += file;
 	infile.close();
 	len = save.length();
+	pos = save.find("\n") + 1;
 	max = save.rfind('\n');
 	for (int i = 0; pos < len && pos < max; i++)
 	{
@@ -87,14 +88,12 @@ double BitcoinExchange::find_value(std::string date) {
 	std::map<std::string, double>::iterator it;
 
 	it = this->_database.find(date);
-	while (it == this->_database.end() && date != "2009-01-01") {
+	while (it == this->_database.end() && date != "2009-01-02") {
 		date = change_day(date);
 		it = this->_database.find(date);
 	}
 	if (it != this->_database.end())
 		return (it->second);
-	else
-		std::cout << "Error: no match in the database" << std::endl;
 	return (0);
 }
 
@@ -123,7 +122,9 @@ int check_num(std::string num) {
 
 int check_date(std::string date) {
 	std::string n;
-	size_t nu;
+	size_t year;
+	size_t month;
+	size_t day;
 	int pos = 0;
 	size_t len = 0;
 
@@ -137,16 +138,18 @@ int check_date(std::string date) {
 	if (pos != 7)
 		return (1);
 	n.assign(date,0,4);
-	nu = atoi(n.c_str());
-	if (nu < 2009 || nu > 2100)
+	year = atoi(n.c_str());
+	if (year < 2009 || year > 2100)
 		return (1);
 	n.assign(date,5,2);
-	nu = atoi(n.c_str());
-	if (nu < 1 || nu > 12)
+	month = atoi(n.c_str());
+	if (month < 1 || month > 12)
 		return (1);
 	n.assign(date,8,2);
-	nu = atoi(n.c_str());
-	if (nu < 1 || nu > 31)
+	day = atoi(n.c_str());
+	if (day < 1 || day > 31)
+		return (1);
+	if (year == 2009 && month == 1 && day < 2)
 		return (1);
 	return (0);
 }
