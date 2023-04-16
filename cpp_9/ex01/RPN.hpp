@@ -5,6 +5,7 @@
 # include <string>
 # include <stack>
 # include <iostream>
+# include <cstdlib>
 
 class RPN
 {
@@ -19,7 +20,7 @@ class RPN
 		~RPN();
 
 		RPN &operator=(RPN const &rhs);
-		
+
 		void execute_RPN();
 };
 
