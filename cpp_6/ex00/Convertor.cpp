@@ -32,7 +32,7 @@ Convertor::Convertor(const std::string &str) : _nan(0) {
 		{
 			end = NULL;
 			double tmp2 = strtod(conv, &end);
-			if (end[0] == 'f')
+			if (end[0] == 'f' && !end[1])
 				this->_cast = tmp2;
 			else if (*end)
 				throw(Convertor::BadInput());
